@@ -6,111 +6,104 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 12:20:02 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/13 15:34:26 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/14 14:25:19 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
-#define A a->format[a->cur]
 
 
 void	ft_read_flags(t_arg *a)
 {
-	if (A == '#')
+	if (CUR == '#')
 	{
 		a->flag[POUND] = 1;
 		a->cur++;
 	}
-	else if (A == '0')
+	else if (CUR == '0')
 	{
 		a->flag[ZERO] = 1;
 		a->cur++;
 	}
-	else if (A == '-')
+	else if (CUR == '-')
 	{
 		a->flag[LESS] = 1;
 		a->cur++;
 	}
-	else if (A == '+')
+	else if (CUR == '+')
 	{
 		a->flag[MORE] = 1;
 		a->cur++;
 	}
-	else if (A == ' ')
+	else if (CUR == ' ')
 	{
 		a->flag[SPACE] = 1;
 		a->cur++;
 	}
 }
 
-void	ft_opt_width(t_arg *a)
-{
-	char	*str;
-	int		i;
-
-	i = 0;
-	while (ft_isdigit(a->format[i]))
-		i++;
-	if (!(str = ft_strnew(i)))
-		return ;
-	i = 0;
-	while (ft_isdigit(a->format[a->cur]))
-	{
-		str[i] = a->format[a->cur];
-		a->cur++;
-		i++;
-	}
-	str[i] = '\0';
-	a->width = ft_atoi(str);
-	free(str);
-}
-
 void	ft_opt_size(t_arg *a)
 {
-	if (a->format[a->cur] == 'h' && a->format[a->cur + 1] == 'h')
+	if (CUR == 'h' && a->format[a->cur + 1] == 'h')
 	{
 		a->size[0] = 1;
 		a->cur++;
 	}
-	else if (a->format[a->cur] == 'h')
+	else if (CUR == 'h')
 		a->size[1] = 1;
-	else if (a->format[a->cur] == 'l' && a->format[a->cur + 1] == 'l')
+	else if (CUR == 'l' && a->format[a->cur + 1] == 'l')
 	{
 		a->size[3] = 1;
 		a->cur++;
 	}
-	else if (a->format[a->cur] == 'l')
+	else if (CUR == 'l')
 		a->size[2] = 1;
-	else if (a->format[a->cur] == 'j')
+	else if (CUR == 'j')
 		a->size[4] = 1;
-	else if (a->format[a->cur] == 'z')
+	else if (CUR == 'z')
 		a->size[5] = 1;
 	a->cur++;
 }
 
-
-/* si probleme ici, hesite pas a remettre une verif que A = '.'*/
-void	ft_opt_precision(t_arg *a)
+void	ft_opt_width_precision(t_arg *a)
 {
-	int	i;
+	int		i;
 	char	*str;
 
-	a->dot = 1;
-	a->cur++;
-	if (a->format[a->cur] == '-' || !(ft_isdigit(a->format[a->cur])))
+	if(CUR == '.')
+	{
+		a->dot = 1;
+		a->cur++;
+	}
+	if (!(ft_isdigit(CUR)))
 		return ;
 	while (ft_isdigit(a->format[i]) && a->format[i] != '\0')
-			i++;
-	if (!(str = ft_strnew(i)))
-		return ;
+		i++;
 	i = 0;
-	while (ft_isdigit(a->format[a->cur]) && a->format[i] != '\0')
+	while (ft_isdigit(CUR) && a->format[i] != '\0')
 	{
-		str[i] = a->format[a->cur];
+		str[i] = CUR;
 		a->cur++;
 		i++;
 	}
-	str[i] = '\0';
-	a->precision = ft_atoi(str);
+	a->dot == 1 ? (a->precision = ft_atoi(str)) : (a->width = ft_atoi(str));
 	free(str);
+}
+
+void	ft_sort_options(t_arg *a)
+{
+	if (a->format[a->cur + 1] == '%')
+	{
+		ft_print_percent(a);
+		return ;
+	}
+	while (pf_strchr("-+#0 hljz.", CUR) || pf_is_posdigit(CUR))
+	{
+		if (pf_strchr("-+#0 ", CUR))
+			ft_read_flags(a);
+		if (pf_is_posdigit(CUR) || CUR == '.')
+			ft_opt_width_precision(a);
+		if (pf_strchr("hjlz", CUR))
+			ft_opt_size(a);
+	}
 }

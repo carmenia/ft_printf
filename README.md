@@ -4,6 +4,7 @@ TO DO
 
 
 LINKS
+https://forum.intra.42.fr/topics/15759/messages?page=1#81669
 
 FILECHECKERS
 	curqui_test
