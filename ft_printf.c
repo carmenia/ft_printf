@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -10,6 +11,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+=======
+>>>>>>> 84d54073ec29d9fd780b6ff4d9d5efab24dc3172
 #include "ft_printf.h"
 
 void	ft_sort_format(t_arg *a)
@@ -63,9 +66,13 @@ void	ft_start_parsing(t_arg *a)
 			ft_sort_options(a);
 			ft_sort_format(a);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 			printf("%s\n", a->format);
 >>>>>>> e81c1b78ccec9439339baeb0d1dbc5a3c78a43b2
+=======
+			printf("%s\n,a->format");
+>>>>>>> 84d54073ec29d9fd780b6ff4d9d5efab24dc3172
 		}
 	}
 }
