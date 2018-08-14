@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 12:20:18 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/14 16:02:41 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/14 16:36:12 by vduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,7 @@ int					pf_is_posdigit(char c);
 int					pf_strchr(char *s, char c);
 void				ft_put_space(t_arg *a, int flag);
 void				ft_put_precision(t_arg *a, int zeros);
+/*test*/
+void				ft_printfargs(t_arg *a);
 
 #endif
