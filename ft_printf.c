@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 17:06:42 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/14 18:57:52 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/14 21:25:41 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	ft_sort_format(t_arg *a)
 		ft_long(a);
 	else if (CUR == 's' && a->size[2] != 1)
 		ft_str(a);
-	else if (CUR == 'i' || CUR == 'd')
-		ft_int(a);
+*/	else if (CUR == 'i' || CUR == 'd'|| CUR == 'D')
+		ft_dint(a);/*
 	else if (CUR == 'S' || (CUR == 's' && a->size[2] == 1))
 		ft_wstr(a);
 	else if (CUR == 'c' && a->size[2] != 1)
@@ -50,7 +50,6 @@ void	ft_start_parsing(t_arg *a)
 {
 	while (CUR && a->error != 1)
 	{
-		a->len += ft_strlen(a->var);
 		a->var = NULL;
 		while (CUR != '%' && CUR != '\0')
 		{
@@ -75,6 +74,9 @@ void init_s_arg(t_arg *a, const char *format)
 	a->cur = 0;
 	a->len = 0;
 	a->error = 0;
+	a->dot = 0;
+	a->width = 0;
+	a->precision = 0;
 	a->format = format;
 	while (a->flag[i])
 	{

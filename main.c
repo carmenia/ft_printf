@@ -1,7 +1,6 @@
 #include "ft_printf.h"
 #include <stdio.h>
-# define TEST "%u", 5
-
+# define TEST "%+27.23d", (short int)566
 
 int main(void)
 {
