@@ -3,6 +3,7 @@
 
 int main(void)
 {
-	printf("[%d]\n", ft_printf("%5u", 654));
+	printf("[%d]\n", ft_printf("%u", 5));
+/*	printf("[%d]\n", printf("%%"));*/
 	return (0);
 }

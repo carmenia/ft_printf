@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 14:49:59 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/14 17:40:32 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/14 18:45:32 by carmenia         ###   ########.fr       */
 /*   Updated: 2018/08/14 17:06:32 by vduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -17,7 +17,6 @@ void	ft_print_percent(t_arg *a)
 {
 	ft_putchar('%');
 	a->len++;
-	a->cur++;
 }
 
 void	ft_put_space(t_arg *a, int flag)
