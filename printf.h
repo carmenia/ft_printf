@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 12:20:18 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/14 14:53:31 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/14 15:00:05 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void				omajint(t_arg *a);
 void				oint(t_arg *a);
 void				xmajint(t_arg *a);
 void				xint(t_arg *a);
-void				uint(t_arg *a);
+void				ft_uint(t_arg *a);
 void				ft_print_percent(t_arg *a);
 void				ft_read_flags(t_arg *a);
 void				ft_opt_width(t_arg *a);

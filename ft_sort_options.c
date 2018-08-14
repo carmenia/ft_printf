@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 12:20:02 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/14 14:25:19 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/14 15:04:49 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,13 @@ void	ft_opt_width_precision(t_arg *a)
 		a->dot = 1;
 		a->cur++;
 	}
+	i = 0;
 	if (!(ft_isdigit(CUR)))
 		return ;
 	while (ft_isdigit(a->format[i]) && a->format[i] != '\0')
 		i++;
+	if(!(str = ft_strnew(i)))
+		return ;
 	i = 0;
 	while (ft_isdigit(CUR) && a->format[i] != '\0')
 	{

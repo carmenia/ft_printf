@@ -6,11 +6,11 @@ INC = printf.h
 
 SRCS = main.c			\
 	   ft_printf.c		\
-	   arg_handler_format.c\
-	   arg_handler_options.c\
-	   dint.c				\
-	   print_percent.c
-
+	   ft_sort_options.c\
+	   ft_unsigned.c\
+	   ft_general_printer.c	\
+	   utilities/pf_isdigit.c\
+	   utilities/pf_strchr.c
 
 SRCO = $(SRCS:.c=.o)
 

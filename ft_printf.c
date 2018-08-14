@@ -70,5 +70,5 @@ int	ft_printf(const char *format, ...)
 	va_start(a.ap, format);
 	ft_start_parsing(&a);
 	va_end(a.ap);
-	return (a.len = (a.error = 0) ? a.len : -1);
+	return (a.error == 0 ? a.len : -1);
 }
