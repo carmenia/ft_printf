@@ -48,6 +48,7 @@ void	ft_start_parsing(t_arg *a)
 		{
 			ft_sort_options(a);
 			ft_sort_format(a);
+			printf("%s \n,a->format");
 		}
 		a->var = NULL;
 	}

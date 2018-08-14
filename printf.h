@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 12:20:18 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/14 15:00:05 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/14 16:02:41 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <stdint.h>
 # include <stdarg.h>
 # include <stdlib.h>
+
+#include <stdio.h>
+
 # define POUND 0
 # define ZERO 1
 # define LESS 2
