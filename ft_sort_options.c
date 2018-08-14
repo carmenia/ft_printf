@@ -6,12 +6,19 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 12:20:02 by carmenia          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2018/08/14 17:07:00 by carmenia         ###   ########.fr       */
+=======
+/*   Updated: 2018/08/14 17:05:41 by vduong           ###   ########.fr       */
+>>>>>>> ac85ab51b95296ee0cccbadec8666676a26d6665
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+<<<<<<< HEAD
 
+=======
+>>>>>>> ac85ab51b95296ee0cccbadec8666676a26d6665
 
 void	ft_read_flags(t_arg *a)
 {
