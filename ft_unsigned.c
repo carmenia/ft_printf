@@ -6,11 +6,11 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 20:00:37 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/14 15:56:17 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/14 17:07:07 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 # define CUR a->format[a->cur]
 # define U ft_atoi(a->var)
 
@@ -19,7 +19,6 @@ void	ft_uint(t_arg *a)
 	int	zeros;
 
 	a->var = ft_itoa(va_arg(a->ap, size_t));
-	printf("%s\n", a->var);
 	zeros = a->precision - ft_strlen(a->var);
 	zeros = (zeros < 0) ? 0 : zeros;
 	zeros = (a->dot  && U == 0) ? zeros + 1 : zeros;

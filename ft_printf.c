@@ -62,6 +62,10 @@ void	ft_start_parsing(t_arg *a)
 			a->cur++;
 			ft_sort_options(a);
 			ft_sort_format(a);
+<<<<<<< HEAD
+=======
+			printf("%s\n", a->format);
+>>>>>>> e81c1b78ccec9439339baeb0d1dbc5a3c78a43b2
 		}
 	}
 }

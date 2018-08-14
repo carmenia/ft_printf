@@ -10,7 +10,8 @@ SRCS = main.c			\
 	   ft_unsigned.c\
 	   ft_general_printer.c	\
 	   utilities/pf_isdigit.c\
-	   utilities/pf_strchr.c
+	   utilities/pf_strchr.c\
+	   ft_printargs.c\
 
 SRCO = $(SRCS:.c=.o)
 

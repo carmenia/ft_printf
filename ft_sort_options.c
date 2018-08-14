@@ -6,11 +6,11 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 12:20:02 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/14 15:04:49 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/14 17:07:00 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 
 void	ft_read_flags(t_arg *a)
@@ -95,7 +95,7 @@ void	ft_opt_width_precision(t_arg *a)
 
 void	ft_sort_options(t_arg *a)
 {
-	if (a->format[a->cur + 1] == '%')
+	if (a->format[a->cur] == '%')
 	{
 		ft_print_percent(a);
 		return ;

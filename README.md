@@ -37,4 +37,3 @@ POSSIBLE BONUSES
 -> floats
 -> *
 -> binaire
-# ft_printf
