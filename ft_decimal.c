@@ -6,13 +6,11 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 21:12:48 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/15 11:53:18 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/15 15:10:08 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-# define CUR a->format[a->cur]
 # define D ft_atoi(a->var)
 
 void	ft_dint(t_arg *a)
