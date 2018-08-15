@@ -6,15 +6,18 @@
 /*   By: apoque <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 15:06:12 by apoque            #+#    #+#             */
-/*   Updated: 2018/08/15 16:34:57 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/15 18:06:06 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-# define TEST1 "%d", 5
+# define TEST1 "%-30p", p
 
 int		main(void)
 {
+	int n;
+	void *p;
+	p = &n;
 	printf("[%d]\n", printf(TEST1));
 	printf("{%d}\n", ft_printf(TEST1));
 	return (0);

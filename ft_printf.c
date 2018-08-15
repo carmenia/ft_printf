@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 17:06:42 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/15 17:47:49 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/15 18:03:32 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,13 @@ void init_s_arg(t_arg *a, const char *format)
 	a->width = 0;
 	a->precision = 0;
 	a->format = format;
-	while (a->flag[i])
+	while (i < 5)
 	{
 		a->flag[i] = 0;
 		i++;
 	}
 	i = 0;
-	while (a->size[i])
+	while (i < 6)
 	{
 		a->size[i] = 0;
 		i++;
