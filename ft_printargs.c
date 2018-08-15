@@ -24,4 +24,5 @@ void	ft_printargs(t_arg arg)
 	printf("width = %d\n", arg.width);
 	printf("precision = %d\n", arg.precision);
 	printf("error = %d\n", arg.error);
+	printf("-----------\n");
 }

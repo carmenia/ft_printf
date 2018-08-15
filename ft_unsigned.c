@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 20:00:37 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/14 21:09:36 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/15 11:28:58 by carmenia         ###   ########.fr       */
 /*   Updated: 2018/08/14 17:05:55 by vduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -23,11 +23,8 @@ void	ft_uint(t_arg *a)
 	zeros = a->precision - ft_strlen(a->var);
 	zeros = (zeros < 0) ? 0 : zeros;
 	zeros = (a->dot  && U == 0) ? zeros + 1 : zeros;
-	a->width = a->width - (zeros + ft_strlen(a->var) + a->flag[MORE]);
-	ft_printargs(*a);
-	/* a->width = (a->dot && U == 0) ? a->width + 1 : a->width; */
-	if (a->flag[SPACE] && !a->flag[MORE])
-		a->width--;
+	a->width = a->width - (zeros + ft_strlen(a->var));
+	a->width = (a->dot && U == 0) ? a->width + 1 : a->width;
 	if (a->width > 0 && (!a->flag[ZERO] || PRE > 0) && !a->flag[LESS])
 		ft_put_space(a, 2);
 	if (a->width > 0 && (a->flag[ZERO] && !a->precision))

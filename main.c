@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 #include <stdio.h>
-# define TEST "%+27.23d", (short int)566
+# define TEST "gfd %+.5hd  fg", (short)566
 
 int main(void)
 {
