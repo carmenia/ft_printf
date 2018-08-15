@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 12:20:18 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/15 11:45:28 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/15 12:48:26 by vduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void				ft_put_space(t_arg *a, int flag);
 void				ft_put_precision(t_arg *a, int zeros);
 void				ft_dint(t_arg *a);
 void				ft_print_single_char(t_arg *a, char c);
+char				*ft_itoabase(long long n, int b, int maj);
 /*test*/
 void				ft_printargs(t_arg a);
 
