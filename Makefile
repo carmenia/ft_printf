@@ -13,6 +13,7 @@ SRCS = main.c			\
 	   utilities/pf_strchr.c\
 	   ft_printargs.c\
 	   ft_decimal.c\
+	   ft_octal.c\
 	   utilities/ft_itoabase.c\
 
 SRCO = $(SRCS:.c=.o)

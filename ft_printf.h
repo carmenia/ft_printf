@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 12:20:18 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/15 12:48:26 by vduong           ###   ########.fr       */
+/*   Updated: 2018/08/15 13:43:21 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,6 @@ int					ft_printf(const char *format, ...);
 void				ft_star_parsing(t_arg *a);
 void				ft_sort_options(t_arg *a);
 void				ft_sort_format(t_arg *a);
-void				p(t_arg *a);
-void				wchar(t_arg *a);
-void				dint(t_arg *a);
-void				str(t_arg *a);
-void				longdint(t_arg *a);
-void				wstr(t_arg *a);
-void				treat_char(t_arg *a);
-void				umajint(t_arg *a);
-void				omajint(t_arg *a);
-void				oint(t_arg *a);
-void				xmajint(t_arg *a);
-void				xint(t_arg *a);
 void				ft_uint(t_arg *a);
 void				ft_print_percent(t_arg *a);
 void				ft_read_flags(t_arg *a);
@@ -74,6 +62,7 @@ void				ft_put_precision(t_arg *a, int zeros);
 void				ft_dint(t_arg *a);
 void				ft_print_single_char(t_arg *a, char c);
 char				*ft_itoabase(long long n, int b, int maj);
+void				ft_oint(t_arg *a);
 /*test*/
 void				ft_printargs(t_arg a);
 

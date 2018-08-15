@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 17:06:42 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/14 21:25:41 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/15 13:35:03 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,31 +17,25 @@ void	ft_sort_format(t_arg *a)
 	if ((CUR == 'u' && a->size[2] != 1 && a->size[3] != 1) ||
 			((CUR == 'd' || CUR == 'i') && a->size[5] == 1))
 		ft_uint(a);
-/*	else if (CUR == 'x')
-		ft_xint(a);
-	else if (CUR == 'X')
-		ft_xmajint(a);
-	else if (CUR == 'o' && a->size[3] != 1 && a->size[2] != 1)
+/*	else if (pf_strchr("xX", CUR))
+		ft_xint(a);*/
+	else if (pf_strchr("oO", CUR))
 		ft_oint(a);
-	else if (CUR == 'O' || CUR == 'o')
-		ft_omajint(a);
-	else if (CUR == 'D' || ((CUR == 'd' || CUR == 'i') &&
-				(a->size[2] == 1 || a->size[3] == 1 || a->size[4] == 1)))
-		ft_long(a);
-	else if (CUR == 's' && a->size[2] != 1)
+	/*	else if (CUR == 's' && a->size[2] != 1)
 		ft_str(a);
-*/	else if (CUR == 'i' || CUR == 'd'|| CUR == 'D')
+		*/	
+	else if (CUR == 'i' || CUR == 'd'|| CUR == 'D')
 		ft_dint(a);/*
-	else if (CUR == 'S' || (CUR == 's' && a->size[2] == 1))
-		ft_wstr(a);
-	else if (CUR == 'c' && a->size[2] != 1)
-		ft_char(a);
-	else if (CUR == 'U' || (CUR == 'u' && (a->size[2] == 1 || a->size[3] == 1)))
-		ft_umajint(a);
-	else if (CUR == 'C' || (CUR == 'c' && a->size[2] == 1))
-		ft_wchar(a);
-	else if (CUR == 'p')
-		ft_p(a);*/
+				  else if (CUR == 'S' || (CUR == 's' && a->size[2] == 1))
+				  ft_wstr(a);
+				  else if (CUR == 'c' && a->size[2] != 1)
+				  ft_char(a);
+				  else if (CUR == 'U' || (CUR == 'u' && (a->size[2] == 1 || a->size[3] == 1)))
+				  ft_umajint(a);
+				  else if (CUR == 'C' || (CUR == 'c' && a->size[2] == 1))
+				  ft_wchar(a);
+				  else if (CUR == 'p')
+				  ft_p(a);*/
 	a->cur++;
 }
 
