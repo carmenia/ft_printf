@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 #include <stdio.h>
-# define TEST "gfd %12.24o  fg", (short)566
+# define TEST "gfd %#-12.5o  fg", (short)566
 
 int main(void)
 {

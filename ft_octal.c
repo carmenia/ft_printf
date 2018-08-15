@@ -19,10 +19,10 @@ void	ft_oint(t_arg *a)
 	int	zeros;
 
 	a->var = ft_itoabase(va_arg(a->ap, size_t), 8, 0);
-	zeros = a->precision - ft_strlen(a->var);
+	zeros = a->precision - ft_strlen(a->var) - a->flag[POUND];
 	zeros = (zeros < 0) ? 0 : zeros;
 	zeros = (a->dot  && O == 0) ? zeros + 1 : zeros;
-	a->width = a->width - (zeros + ft_strlen(a->var));
+	a->width = a->width - (zeros + ft_strlen(a->var) + a->flag[POUND]);
 	a->width = (a->dot && O == 0) ? a->width + 1 : a->width;
 	if (a->width > 0 && (!a->flag[ZERO] || PRE > 0) && !a->flag[LESS])
 		ft_put_space(a, 2);
