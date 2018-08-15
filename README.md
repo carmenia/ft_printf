@@ -1,7 +1,6 @@
 TO DO
 	mieux comprendre stdarg et setlocale
-	si tu veux, quand ca marche essaye de fusionner width et precision
-
+	gerer precision = 0;
 
 LINKS
 https://forum.intra.42.fr/topics/15759/messages?page=1#81669

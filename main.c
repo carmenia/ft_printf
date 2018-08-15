@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 #include <stdio.h>
-# define TEST "gfd %s fds", "tintin"
+# define TEST "gfd %.0u", 0
 
 int main(void)
 {
