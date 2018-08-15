@@ -17,6 +17,7 @@ SRCS = main.c			\
 	   ft_hexadecimal.c\
 	   ft_binaire.c\
 	   ft_str.c\
+	   ft_pointer.c\
 	   utilities/ft_itoabase.c\
 
 

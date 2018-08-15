@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 12:20:18 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/15 17:27:42 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/15 17:36:20 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct		s_arg
 	int			error;
 }					t_arg;
 int					ft_printf(const char *format, ...);
-void				ft_star_parsing(t_arg *a);
+void				ft_start_parsing(t_arg *a);
 void				ft_sort_options(t_arg *a);
 void				ft_sort_format(t_arg *a);
 void				ft_uint(t_arg *a);
@@ -68,7 +68,7 @@ char				*ft_addresstostr(void *address, int maj);
 void				ft_print_two_char(t_arg *a, char c, int maj);
 void				ft_bint(t_arg *a);
 void				ft_str(t_arg *a);
-void				ft_p(t_arg *a);
+void				ft_pointer(t_arg *a);
 
 /*test*/
 void				ft_printargs(t_arg a);
