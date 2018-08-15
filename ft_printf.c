@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 17:06:42 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/15 15:25:11 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/15 17:27:37 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	ft_sort_format(t_arg *a)
 					  else if (CUR == 'c' && a->size[2] != 1)
 					  ft_char(a);
 					  else if (CUR == 'C' || (CUR == 'c' && a->size[2] == 1))
-					  ft_wchar(a);
+					  ft_wchar(a);*/
 	else if (CUR == 'p')
-		ft_p(a);*/
+		ft_pointer(a);
 	a->cur++;
 }
 

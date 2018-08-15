@@ -6,13 +6,13 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 15:12:06 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/15 15:16:48 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/15 17:27:13 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_p(t_arg *a)
+void	ft_pointer(t_arg *a)
 {
 
 }
