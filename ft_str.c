@@ -6,7 +6,7 @@
 /*   By: vduong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 14:17:34 by vduong            #+#    #+#             */
-/*   Updated: 2018/08/15 15:10:52 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/15 16:19:17 by vduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,21 @@ void	ft_str(t_arg *a)
 
 	a->var = va_arg(a->ap, char *);
 	size = strlen(a->var);
-	size = (size > a->precision ? a->precision : size);
-	spaces = (a->width < size ? 0 : a->width - size);
+	size = (a->dot && a->precision < size ? a->precision : size);
+	spaces = ((a->width < size ? 0 : a->width - size));
 	i = 0;
-	while (spaces > i++)
+	while (i < spaces && !a->flag[LESS])
+	{
 		ft_print_single_char(a, ' ');
+		i++;
+	}
 	i = 0;
-	while (size > i++)
-		ft_print_single_char(a, a->var[i]);
+	while (i < size)
+		ft_print_single_char(a, a->var[i++]);
+	i = 0;
+	while (i < spaces && a->flag[LESS])
+	{
+		ft_print_single_char(a, ' ');
+		i++;
+	}
 }
