@@ -6,12 +6,12 @@
 /*   By: apoque <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 15:06:12 by apoque            #+#    #+#             */
-/*   Updated: 2018/08/15 18:06:06 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/15 18:41:55 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-# define TEST1 "%-30p", p
+# define TEST1 "|%30c|", 'a'
 
 int		main(void)
 {

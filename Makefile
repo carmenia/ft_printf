@@ -20,6 +20,7 @@ SRCS = main.c			\
 	   ft_pointer.c\
 	   utilities/ft_itoabase.c\
 	   utilities/ft_addresstostr.c\
+	   ft_char.c\
 
 
 SRCO = $(SRCS:.c=.o)

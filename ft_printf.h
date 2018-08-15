@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 12:20:18 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/15 17:47:44 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/15 18:19:52 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void				ft_print_two_char(t_arg *a, char c, int maj);
 void				ft_bint(t_arg *a);
 void				ft_str(t_arg *a);
 void				ft_pointer(t_arg *a, int maj);
-
+void				ft_char(t_arg *a);
 /*test*/
 void				ft_printargs(t_arg a);
 
