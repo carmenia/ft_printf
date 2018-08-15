@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 12:20:18 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/15 13:50:29 by vduong           ###   ########.fr       */
+/*   Updated: 2018/08/15 14:46:19 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,9 @@ void				ft_dint(t_arg *a);
 void				ft_print_single_char(t_arg *a, char c);
 char				*ft_itoabase(long long n, int b, int maj);
 void				ft_oint(t_arg *a);
+void				ft_xint(t_arg *a, int maj);
 char				*ft_addresstostr(void *address, int maj);
+void				ft_print_two_char(t_arg *a, char c, int maj);
 /*test*/
 void				ft_printargs(t_arg a);
 
