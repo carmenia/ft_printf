@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 21:11:59 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/16 21:12:01 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/16 22:55:01 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ t_lst	*ft_format_split(char *format)
 {
 	t_split	sp_sct;
 
-	ft_init_format_split(&sp_sct);
-	while (format[sp_sct.i] != 0)
+	ft_init_format_split(&sp_sct);//initialise sp_sct, i = 0, flag = 1, start = 0
+	while (format[sp_sct.i] != 0)// parcourt tout le format
 	{
-		if (ft_conv(format, sp_sct.i, 0, &(sp_sct.info_struct)) >= 1)
+		if (ft_conv(format, sp_sct.i, 0, &(sp_sct.info_struct)) >= 1)//avance if != '%'
 		{
 			if (sp_sct.spec_flag == 0)
 				ft_add_str_lst(format, sp_sct.i, sp_sct.start, sp_sct.first);

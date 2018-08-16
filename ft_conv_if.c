@@ -6,13 +6,13 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 21:11:00 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/16 21:11:02 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/16 22:55:01 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_type(char *format, int st, t_info *inf)
+int		ft_type(char *format, int st, t_info *inf)//pas tres complex
 {
 	int		j;
 	char	*type_str;
