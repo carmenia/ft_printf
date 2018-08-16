@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apoque <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/13 21:14:51 by apoque            #+#    #+#             */
-/*   Updated: 2018/03/13 17:37:00 by apoque           ###   ########.fr       */
+/*   Created: 2018/08/16 19:10:43 by carmenia          #+#    #+#             */
+/*   Updated: 2018/08/16 19:11:07 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+
+#include "ft_printf.h"
 #define F p->format[p->idx2]
 
 void		ft_treatment2(t_printf *p)

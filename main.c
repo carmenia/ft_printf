@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apoque <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/15 15:06:12 by apoque            #+#    #+#             */
-/*   Updated: 2018/03/13 18:41:30 by apoque           ###   ########.fr       */
+/*   Created: 2018/08/16 19:11:00 by carmenia          #+#    #+#             */
+/*   Updated: 2018/08/16 19:11:07 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include <stdio.h>
-#include "printf.h"
+#include "ft_printf.h"
 #include <limits.h>
 #include <locale.h>
 #include <stdlib.h>

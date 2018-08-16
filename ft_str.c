@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apoque <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/13 17:28:37 by apoque            #+#    #+#             */
-/*   Updated: 2018/03/13 18:36:53 by apoque           ###   ########.fr       */
+/*   Created: 2018/08/16 19:10:51 by carmenia          #+#    #+#             */
+/*   Updated: 2018/08/16 19:11:07 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+
+#include "ft_printf.h"
 #define I str[i]
 #define V1 0x10ffff
 #define V2 0xd800

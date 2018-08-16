@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apoque <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/15 15:11:11 by apoque            #+#    #+#             */
-/*   Updated: 2018/03/13 17:36:29 by apoque           ###   ########.fr       */
+/*   Created: 2018/08/16 19:10:25 by carmenia          #+#    #+#             */
+/*   Updated: 2018/08/16 19:21:21 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+
+#include "ft_printf.h"
 #define F p->format[p->idx2]
 
 void		ft_treatment(t_printf *p)
@@ -84,29 +85,33 @@ void		ft_init_p(t_printf *p, const char *format)
 	p->format = format;
 }
 
+void		ft_display(t_printf *p)
+{
+	while (p->format[p->idx1] && p->error != -1)
+	{
+		p->idx1 = p->idx2;
+		p->txt = 0;
+		while (p->format[p->idx2] != '%' && p->format[p->idx2] != '\0')
+			p->idx2++;
+		if (p->idx1 != p->idx2)
+			ft_txt(p);
+		if (p->format[p->idx2++] == '%')
+		{
+			ft_init_opt(p);
+			ft_opt(p);
+			ft_treatment(p);
+		}
+		if (p->txt == 1 && p->idx1 == ft_strlen((char *)p->format))
+			ft_buf(p);
+	}
+}
 int			ft_printf(const char *format, ...)
 {
 	t_printf p;
 
 	ft_init_p(&p, format);
 	va_start(p.ap, format);
-	while (p.format[p.idx1] && p.error != -1)
-	{
-		p.idx1 = p.idx2;
-		p.txt = 0;
-		while (p.format[p.idx2] != '%' && p.format[p.idx2] != '\0')
-			p.idx2++;
-		if (p.idx1 != p.idx2)
-			ft_txt(&p);
-		if (p.format[p.idx2++] == '%')
-		{
-			ft_init_opt(&p);
-			ft_opt(&p);
-			ft_treatment(&p);
-		}
-		if (p.txt == 1 && p.idx1 == ft_strlen((char *)p.format))
-			ft_buf(&p);
-	}
+	ft_display(&p);
 	va_end(p.ap);
-	return (p.len = (p.error != -1) ? p.len : -1);
+	return (p.error == 0 ? p.len : -1);
 }

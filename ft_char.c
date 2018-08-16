@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_char.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apoque <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/13 13:22:29 by apoque            #+#    #+#             */
-/*   Updated: 2018/03/13 13:33:05 by apoque           ###   ########.fr       */
+/*   Created: 2018/08/16 19:09:53 by carmenia          #+#    #+#             */
+/*   Updated: 2018/08/16 19:11:06 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+
+#include "ft_printf.h"
 #define P p->size
 
 void	ft_putwchar(wchar_t chr)

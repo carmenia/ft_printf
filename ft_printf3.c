@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf3.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apoque <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/13 13:24:25 by apoque            #+#    #+#             */
-/*   Updated: 2018/03/13 17:12:18 by apoque           ###   ########.fr       */
+/*   Created: 2018/08/16 19:10:47 by carmenia          #+#    #+#             */
+/*   Updated: 2018/08/16 19:11:07 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+
+#include "ft_printf.h"
 
 void		ft_opt_size(t_printf *p)
 {

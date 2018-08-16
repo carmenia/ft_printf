@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apoque <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/13 16:04:46 by apoque            #+#    #+#             */
-/*   Updated: 2018/03/13 18:35:40 by apoque           ###   ########.fr       */
+/*   Created: 2018/08/16 19:10:31 by carmenia          #+#    #+#             */
+/*   Updated: 2018/08/16 19:23:27 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ typedef struct			s_printf
 {
 	va_list				ap;
 	const char			*format;
-	char				*buf;
+	char				*buf1;
+	char				*buf2;
 	char				modif[6];
 	char				flag[5];
 	int					idx1;
@@ -101,4 +102,5 @@ int						ft_strcmp(char *s1, char *s2);
 char					*ft_strrev(char *str);
 char					*ft_strjoinfree(char *to_free, const char *s2);
 char					*ft_strndupfree(char *to_free, int n);
+void					ft_display(t_printf *p);
 #endif
