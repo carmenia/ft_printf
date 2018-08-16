@@ -3,94 +3,110 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: apoque <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/14 17:06:42 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/15 18:20:39 by carmenia         ###   ########.fr       */
+/*   Created: 2018/01/15 15:11:11 by apoque            #+#    #+#             */
+/*   Updated: 2018/03/13 17:36:29 by apoque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "printf.h"
+#define F p->format[p->idx2]
 
-void	ft_sort_format(t_arg *a)
+void		ft_treatment(t_printf *p)
 {
-	if ((CUR == 'u' && a->size[2] != 1 && a->size[3] != 1) ||
-			((CUR == 'd' || CUR == 'i') && a->size[5] == 1))
-		ft_uint(a);
-	else if (pf_strchr("xX", CUR))
-		CUR == 'X' ? ft_xint(a, 1) : ft_xint(a, 0);
-	else if (pf_strchr("oO", CUR))
-		ft_oint(a);
-	else if (pf_strchr("bB", CUR))
-		ft_bint(a);
-	else if (CUR == 's' && a->size[2] != 1)
-		ft_str(a);
-	else if (CUR == 'i' || CUR == 'd'|| CUR == 'D')
-		ft_dint(a);/*
-					  else if (CUR == 'S' || (CUR == 's' && a->size[2] == 1))
-					  ft_wstr(a);*/
-	 else if (CUR == 'c' && a->size[2] != 1)
-			ft_char(a);/*
-					  else if (CUR == 'C' || (CUR == 'c' && a->size[2] == 1))
-					  ft_wchar(a);*/
-	else if (strchr("Pp", CUR))
-		CUR == 'P' ? ft_pointer(a, 1) : ft_pointer(a, 0);
-	a->cur++;
-}
+	int	a;
 
-void	ft_start_parsing(t_arg *a)
-{
-	while (CUR && a->error != 1)
+	a = 1;
+	if ((F == 'u' && p->modif[L] != 1 && p->modif[LL] != 1) ||
+			((F == 'd' || F == 'i') && p->modif[Z] == 1))
+		ft_uint(p);
+	else if (F == 'x')
+		ft_xint(p);
+	else if (F == 'X')
+		ft_xmajint(p);
+	else if (F == 'o' && p->modif[LL] != 1 && p->modif[L] != 1)
+		ft_oint(p);
+	else if (F == 'O' || F == 'o')
+		ft_omajint(p);
+	else if (F == 'D' || ((F == 'd' || F == 'i') &&
+				(p->modif[L] == 1 || p->modif[LL] == 1 || p->modif[J] == 1)))
+		ft_long(p);
+	else if (F == 's' && p->modif[L] != 1)
+		ft_str(p);
+	else
 	{
-		a->var = NULL;
-		while (CUR != '%' && CUR != '\0')
-		{
-			ft_putchar(CUR);
-			a->cur++;
-			a->len++;
-		}
-		if (CUR == '%')
-		{
-			a->cur++;
-			ft_sort_options(a);
-			ft_sort_format(a);
-		}
+		a = 0;
+		ft_treatment2(p);
 	}
+	(a == 1) ? p->idx2++ : a--;
 }
 
-void init_s_arg(t_arg *a, const char *format)
+void		ft_txt(t_printf *p)
 {
-	int	i;
+	char	*tmp;
+	int		i;
 
 	i = 0;
-	a->cur = 0;
-	a->len = 0;
-	a->error = 0;
-	a->dot = 0;
-	a->width = 0;
-	a->precision = 0;
-	a->format = format;
-	while (i < 5)
+	p->txt = 1;
+	tmp = (char *)malloc(sizeof(char) * (p->idx2 - p->idx1 + 1));
+	tmp[p->idx2 - p->idx1] = '\0';
+	while (p->idx1 < p->idx2)
 	{
-		a->flag[i] = 0;
+		tmp[i] = p->format[p->idx1];
+		p->idx1++;
 		i++;
 	}
-	i = 0;
-	while (i < 6)
-	{
-		a->size[i] = 0;
-		i++;
-	}
+	p->buf = ft_strdup(tmp);
+	free(tmp);
 }
 
-int	ft_printf(const char *format, ...)
+void		ft_buf(t_printf *p)
 {
-	t_arg	a;
+	p->len = p->len + ft_strlen(p->buf);
+	ft_putstr(p->buf);
+	if (p->buf != NULL && F != 'c' && F != 'C')
+	{
+		free(p->buf);
+		p->buf = NULL;
+	}
+	else
+		free(p->buf);
+}
 
+void		ft_init_p(t_printf *p, const char *format)
+{
+	p->buf = NULL;
+	p->idx1 = 0;
+	p->idx2 = 0;
+	p->len = 0;
+	p->error = 0;
+	p->format = format;
+}
 
-	init_s_arg(&a, format);
-	va_start(a.ap, format);
-	ft_start_parsing(&a);
-	va_end(a.ap);
-	return (a.error == 0 ? a.len : -1);
+int			ft_printf(const char *format, ...)
+{
+	t_printf p;
+
+	ft_init_p(&p, format);
+	va_start(p.ap, format);
+	while (p.format[p.idx1] && p.error != -1)
+	{
+		p.idx1 = p.idx2;
+		p.txt = 0;
+		while (p.format[p.idx2] != '%' && p.format[p.idx2] != '\0')
+			p.idx2++;
+		if (p.idx1 != p.idx2)
+			ft_txt(&p);
+		if (p.format[p.idx2++] == '%')
+		{
+			ft_init_opt(&p);
+			ft_opt(&p);
+			ft_treatment(&p);
+		}
+		if (p.txt == 1 && p.idx1 == ft_strlen((char *)p.format))
+			ft_buf(&p);
+	}
+	va_end(p.ap);
+	return (p.len = (p.error != -1) ? p.len : -1);
 }
