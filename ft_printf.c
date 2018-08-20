@@ -5,50 +5,108 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/16 21:13:30 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/16 21:13:31 by carmenia         ###   ########.fr       */
+/*   Created: 2018/08/20 20:33:17 by carmenia          #+#    #+#             */
+/*   Updated: 2018/08/20 20:33:19 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "printf.h"
+#define F p->format[p->idx2]
 
-int		ft_first_treatment(t_lst *first)
+void		ft_treatment(t_printf *p)
 {
-	int			read_bytes;
+	int	a;
 
-	ft_conv_treatment(first);
-	ft_accuracy_treatment(first);
-	ft_get_clean_flag(first);
-	read_bytes = ft_display(first);
-	ft_empty_lst(first);
-	return (read_bytes);
+	a = 1;
+	if ((F == 'u' && p->modif[L] != 1 && p->modif[LL] != 1) ||
+			((F == 'd' || F == 'i') && p->modif[Z] == 1))
+		ft_uint(p);
+	else if (F == 'x')
+		ft_xint(p);
+	else if (F == 'X')
+		ft_xmajint(p);
+	else if (F == 'o' && p->modif[LL] != 1 && p->modif[L] != 1)
+		ft_oint(p);
+	else if (F == 'O' || F == 'o')
+		ft_omajint(p);
+	else if (F == 'D' || ((F == 'd' || F == 'i') &&
+				(p->modif[L] == 1 || p->modif[LL] == 1 || p->modif[J] == 1)))
+		ft_long(p);
+	else if (F == 's' && p->modif[L] != 1)
+		ft_str(p);
+	else
+	{
+		a = 0;
+		ft_treatment2(p);
+	}
+	(a == 1) ? p->idx2++ : a--;
 }
 
-int		ft_printf(const char *format, ...)
+void		ft_txt(t_printf *p)
 {
-	va_list		ap;
-	t_lst		*first;
-	t_lst		*index;
-	int			read_bytes;
+	char	*tmp;
+	int		i;
 
-	if (format == NULL || ft_strcmp(format, "") == 0)
-		return (0);
-	va_start(ap, format);
-	first = ft_format_split((char *)format);
-	first = ft_delete_first(first);
-	ft_v_type_clean(first);
-	index = first;
-	while (index)
+	i = 0;
+	p->txt = 1;
+	tmp = (char *)malloc(sizeof(char) * (p->idx2 - p->idx1 + 1));
+	tmp[p->idx2 - p->idx1] = '\0';
+	while (p->idx1 < p->idx2)
 	{
-		if (index->v_type != 0)
-		{
-			index->value_signed = va_arg_intmax(ap, index->v_type);
-			index->value_unsigned = va_arg_uintmax(ap, index->v_type);
-			index->value_ptr = va_arg_void(ap, index->v_type);
-		}
-		index = index->next;
+		tmp[i] = p->format[p->idx1];
+		p->idx1++;
+		i++;
 	}
-	va_end(ap);
-	read_bytes = ft_first_treatment(first);
-	return (read_bytes);
+	p->buf = ft_strdup(tmp);
+	free(tmp);
+}
+
+void		ft_buf(t_printf *p)
+{
+	p->len = p->len + ft_strlen(p->buf);
+	ft_putstr(p->buf);
+	if (p->buf != NULL && F != 'c' && F != 'C')
+	{
+		free(p->buf);
+		p->buf = NULL;
+	}
+	else
+		free(p->buf);
+}
+
+void		ft_init_p(t_printf *p, const char *format)
+{
+	p->buf = NULL;
+	p->idx1 = 0;
+	p->idx2 = 0;
+	p->len = 0;
+	p->error = 0;
+	p->format = format;
+}
+
+int			ft_printf(const char *format, ...)
+{
+	t_printf p;
+
+	ft_init_p(&p, format);
+	va_start(p.ap, format);
+	while (p.format[p.idx1] && p.error != -1)
+	{
+		p.idx1 = p.idx2;
+		p.txt = 0;
+		while (p.format[p.idx2] != '%' && p.format[p.idx2] != '\0')
+			p.idx2++;
+		if (p.idx1 != p.idx2)
+			ft_txt(&p);
+		if (p.format[p.idx2++] == '%')
+		{
+			ft_init_opt(&p);
+			ft_opt(&p);
+			ft_treatment(&p);
+		}
+		if (p.txt == 1 && p.idx1 == ft_strlen((char *)p.format))
+			ft_buf(&p);
+	}
+	va_end(p.ap);
+	return (p.len = (p.error != -1) ? p.len : -1);
 }

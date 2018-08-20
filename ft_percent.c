@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_safe_free.c                                     :+:      :+:    :+:   */
+/*   ft_percent.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/16 21:14:15 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/16 21:14:16 by carmenia         ###   ########.fr       */
+/*   Created: 2018/08/20 20:33:05 by carmenia          #+#    #+#             */
+/*   Updated: 2018/08/20 20:33:06 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "printf.h"
 
-char	*ft_safe_free(char *str)
+void	ft_percent(t_printf *p)
 {
-	if (str)
-	{
-		free(str);
-		str = NULL;
-	}
-	return (str);
+	if (p->txt == 1)
+		ft_buf(p);
+	p->size--;
+	if (p->size > 0 && p->flag[ZERO] == 1 && p->flag[LESS] != 1)
+		ft_put_space(p, 1);
+	if (p->size > 0 && p->flag[LESS] != 1)
+		ft_put_space(p, 2);
+	ft_putchar('%');
+	p->len++;
+	if (p->size > 0 && p->flag[LESS] == 1)
+		ft_put_space(p, 2);
 }
