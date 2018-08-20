@@ -6,7 +6,7 @@
 /*   By: apoque <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 16:04:46 by apoque            #+#    #+#             */
-/*   Updated: 2018/03/13 18:35:40 by apoque           ###   ########.fr       */
+/*   Updated: 2018/08/20 22:13:40 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ int						ft_atoi(char *str);
 char					*ft_itoa(int nb);
 char					*ft_uitoa(unsigned int nb);
 char					*ft_uitoabase(unsigned int nb, int base);
-char					*ft_itoabase_u(uintmax_t nb, char *str);
 char					*ft_ltoa(long int nb);
 char					*ft_litoabase(long int nb, int base);
 void					ft_putstr(char *str);
@@ -100,5 +99,10 @@ char					*ft_strjoin(const char *s1, const char *s2);
 int						ft_strcmp(char *s1, char *s2);
 char					*ft_strrev(char *str);
 char					*ft_strjoinfree(char *to_free, const char *s2);
+char					*ft_strndupfree(char *to_free, int n);
+char					*ft_itoabase_u(unsigned long long val, int base, int maj);
+char					*ft_lowerstr(char *s);
+char					*ft_strjoinfree(char *to_free, char const *s2);
+char					*ft_strndup(const char *s, int n);
 char					*ft_strndupfree(char *to_free, int n);
 #endif

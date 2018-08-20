@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 20:33:54 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/20 20:33:58 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/20 21:31:38 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ void	ft_uint2(t_printf *p)
 	if (p->modif[HH] == 1 && F == 'u')
 	{
 		a = va_arg(p->ap, unsigned int);
-		p->buf = ft_itoabase_u(a, "0123456789");
+		p->buf = ft_itoa(a);
 		ft_print_u(p, a);
 	}
 	else
 	{
 		u = va_arg(p->ap, unsigned int);
-		p->buf = ft_itoabase_u(u, "0123456789");
+		p->buf = ft_itoa(u);
 		ft_print_u(p, u);
 	}
 }
@@ -71,13 +71,13 @@ void	ft_uint(t_printf *p)
 	if (p->modif[Z] == 1 && F != 'd' && F != 'i')
 	{
 		z = va_arg(p->ap, size_t);
-		p->buf = ft_itoabase_u(z, "0123456789");
+		p->buf = ft_itoa(z);
 		ft_print_u(p, z);
 	}
 	else if (p->modif[J] == 1 || (p->modif[Z] && (F == 'd' || F == 'i')))
 	{
 		x = va_arg(p->ap, size_t);
-		p->buf = ft_itoabase_u(x, "0123456789");
+		p->buf = ft_itoa(x);
 		ft_print_u(p, x);
 	}
 	else
@@ -94,6 +94,6 @@ void	ft_umajint(t_printf *p)
 		u = (unsigned long int)va_arg(p->ap, unsigned long int);
 	else
 		u = (unsigned long long int)va_arg(p->ap, unsigned long long int);
-	p->buf = ft_itoabase_u(u, "0123456789");
+	p->buf = ft_itoa(u);
 	ft_print_u(p, u);
 }

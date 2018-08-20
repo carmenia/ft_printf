@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 20:32:46 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/20 20:32:48 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/20 21:59:15 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,19 +58,19 @@ void	ft_oint2(t_printf *p)
 	if (p->modif[H] == 1)
 	{
 		s = (unsigned short)va_arg(p->ap, unsigned int);
-		p->buf = ft_itoabase_u(s, "01234567");
+		p->buf = ft_itoabase_u(s, 8, 0);
 		ft_print_o(p, s);
 	}
 	else if (p->modif[HH] == 1)
 	{
 		a = va_arg(p->ap, unsigned int);
-		p->buf = ft_itoabase_u(a, "01234567");
+		p->buf = ft_itoabase_u(a, 8, 0);
 		ft_print_o(p, a);
 	}
 	else
 	{
 		o = va_arg(p->ap, unsigned int);
-		p->buf = ft_itoabase_u(o, "01234567");
+		p->buf = ft_itoabase_u(o, 8, 0);
 		ft_print_o(p, o);
 	}
 }
@@ -85,13 +85,13 @@ void	ft_oint(t_printf *p)
 	if (p->modif[Z] == 1)
 	{
 		z = va_arg(p->ap, size_t);
-		p->buf = ft_itoabase_u(z, "01234567");
+		p->buf = ft_itoabase_u(z, 8, 0);
 		ft_print_o(p, z);
 	}
 	else if (p->modif[J] == 1)
 	{
 		u = va_arg(p->ap, unsigned long long);
-		p->buf = ft_itoabase_u(u, "01234567");
+		p->buf = ft_itoabase_u(u, 8, 0);
 		ft_print_o(p, u);
 	}
 	else
@@ -108,6 +108,6 @@ void	ft_omajint(t_printf *p)
 		o = (unsigned long int)va_arg(p->ap, unsigned long int);
 	else
 		o = (unsigned long long int)va_arg(p->ap, unsigned long long int);
-	p->buf = ft_itoabase_u(o, "01234567");
+	p->buf = ft_itoabase_u(o, 8, 0);
 	ft_print_o(p, o);
 }

@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 20:32:55 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/20 20:32:56 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/20 21:33:30 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_p(t_printf *p)
 	if (p->txt == 1)
 		ft_buf(p);
 	point = (unsigned long)va_arg(p->ap, void *);
-	p->buf = ft_itoabase_u(point, "0123456789abcdef");
+	p->buf = ft_itoabase_u(point, 16, 0);
 	p->size = p->size - ft_strlen(p->buf) - 2;
 	p->flag[DIESE] = 1;
 	p->flag[J] = -5;

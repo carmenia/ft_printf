@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 20:34:02 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/20 20:34:05 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/20 21:33:01 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,19 +61,19 @@ void	ft_xint2(t_printf *p)
 	if (p->modif[HH] == 1)
 	{
 		a = va_arg(p->ap, unsigned int);
-		p->buf = ft_itoabase_u(a, "0123456789abcdef");
+		p->buf = ft_itoabase_u(a, 16, 0);
 		ft_print_x(p, a);
 	}
 	else if (p->modif[J] == 1 || p->modif[LL] == 1)
 	{
 		u = va_arg(p->ap, unsigned long long);
-		p->buf = ft_itoabase_u(u, "0123456789abcdef");
+		p->buf = ft_itoabase_u(u, 16, 0);
 		ft_print_x(p, u);
 	}
 	else
 	{
 		o = va_arg(p->ap, unsigned int);
-		p->buf = ft_itoabase_u(o, "0123456789abcdef");
+		p->buf = ft_itoabase_u(o, 16, 0);
 		ft_print_x(p, o);
 	}
 }
@@ -88,13 +88,13 @@ void	ft_xint(t_printf *p)
 	if (p->modif[Z] == 1)
 	{
 		z = va_arg(p->ap, size_t);
-		p->buf = ft_itoabase_u(z, "0123456789abcdef");
+		p->buf = ft_itoabase_u(z, 16, 0);
 		ft_print_x(p, z);
 	}
 	else if (p->modif[L] == 1)
 	{
 		v = va_arg(p->ap, unsigned long);
-		p->buf = ft_itoabase_u(v, "0123456789abcdef");
+		p->buf = ft_itoabase_u(v, 16, 0);
 		ft_print_x(p, v);
 	}
 	else
@@ -115,6 +115,6 @@ void	ft_xmajint(t_printf *p)
 		o = (unsigned char)va_arg(p->ap, unsigned int);
 	else
 		o = (unsigned int)va_arg(p->ap, unsigned int);
-	p->buf = ft_itoabase_u(o, "0123456789ABCDEF");
+	p->buf = ft_itoabase_u(o, 16, 1);
 	ft_print_x(p, o);
 }
