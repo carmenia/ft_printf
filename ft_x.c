@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/20 20:34:02 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/20 21:33:01 by carmenia         ###   ########.fr       */
+/*   Created: 2018/08/21 11:49:36 by carmenia          #+#    #+#             */
+/*   Updated: 2018/08/21 13:02:13 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 #define S p->size
 
 void	ft_print_x2(t_printf *p, unsigned long u, int zeros)
@@ -18,8 +18,8 @@ void	ft_print_x2(t_printf *p, unsigned long u, int zeros)
 	if (S > 0 && (p->flag[ZERO] != 1 || p->dot == 1) &&
 			p->flag[LESS] != 1)
 		ft_put_space(p, 2);
-	if (((p->flag[DIESE] == 1 && u != 0) ||
-		(p->flag[DIESE] == 1 && p->dot == 1 && u != 0)) || p->flag[J] == -5)
+	if (((p->flag[POUND] == 1 && u != 0) ||
+		(p->flag[POUND] == 1 && p->dot == 1 && u != 0)) || p->flag[J] == -5)
 	{
 		ft_putchar('0');
 		if (p->format[p->idx2] == 'X')
@@ -33,7 +33,7 @@ void	ft_print_x2(t_printf *p, unsigned long u, int zeros)
 	if (zeros > 0)
 		ft_put_precision(p, zeros);
 	if (!(p->dot == 1 && u == 0))
-		ft_buf(p);
+		ft_print_buf(p);
 	if (S > 0 && (p->flag[LESS] == 1))
 		ft_put_space(p, 2);
 }
@@ -46,9 +46,9 @@ void	ft_print_x(t_printf *p, unsigned long u)
 	zeros = p->precision - ft_strlen(p->buf);
 	zeros = (p->dot == 1 && u == 0) ? zeros + 1 : zeros;
 	zeros = (zeros < 0) ? 0 : zeros;
-	tmp = ((p->flag[DIESE] == 1 && (u != 0 || p->dot == 1))) ? 2 : 0;
+	tmp = ((p->flag[POUND] == 1 && (u != 0 || p->dot == 1))) ? 2 : 0;
 	S = S - (zeros + ft_strlen(p->buf) + p->flag[MORE] + tmp);
-	S = (p->dot == 1 && u == 0 && p->flag[DIESE] != 1) ? S + 1 : S;
+	S = (p->dot == 1 && u == 0 && p->flag[POUND] != 1) ? S + 1 : S;
 	ft_print_x2(p, u, zeros);
 }
 
@@ -61,19 +61,19 @@ void	ft_xint2(t_printf *p)
 	if (p->modif[HH] == 1)
 	{
 		a = va_arg(p->ap, unsigned int);
-		p->buf = ft_itoabase_u(a, 16, 0);
+		p->buf = ft_itoabase_u(a, "0123456789abcdef");
 		ft_print_x(p, a);
 	}
 	else if (p->modif[J] == 1 || p->modif[LL] == 1)
 	{
 		u = va_arg(p->ap, unsigned long long);
-		p->buf = ft_itoabase_u(u, 16, 0);
+		p->buf = ft_itoabase_u(u, "0123456789abcdef");
 		ft_print_x(p, u);
 	}
 	else
 	{
 		o = va_arg(p->ap, unsigned int);
-		p->buf = ft_itoabase_u(o, 16, 0);
+		p->buf = ft_itoabase_u(o, "0123456789abcdef");
 		ft_print_x(p, o);
 	}
 }
@@ -84,17 +84,17 @@ void	ft_xint(t_printf *p)
 	size_t				z;
 
 	if (p->txt == 1)
-		ft_buf(p);
+		ft_print_buf(p);
 	if (p->modif[Z] == 1)
 	{
 		z = va_arg(p->ap, size_t);
-		p->buf = ft_itoabase_u(z, 16, 0);
+		p->buf = ft_itoabase_u(z, "0123456789abcdef");
 		ft_print_x(p, z);
 	}
 	else if (p->modif[L] == 1)
 	{
 		v = va_arg(p->ap, unsigned long);
-		p->buf = ft_itoabase_u(v, 16, 0);
+		p->buf = ft_itoabase_u(v, "0123456789abcdef");
 		ft_print_x(p, v);
 	}
 	else
@@ -106,7 +106,7 @@ void	ft_xmajint(t_printf *p)
 	unsigned long	o;
 
 	if (p->txt == 1)
-		ft_buf(p);
+		ft_print_buf(p);
 	if (p->modif[L] == 1 || p->modif[Z] == 1)
 		o = (unsigned long int)va_arg(p->ap, unsigned long int);
 	else if (p->modif[LL] == 1 || p->modif[J] == 1)
@@ -115,6 +115,6 @@ void	ft_xmajint(t_printf *p)
 		o = (unsigned char)va_arg(p->ap, unsigned int);
 	else
 		o = (unsigned int)va_arg(p->ap, unsigned int);
-	p->buf = ft_itoabase_u(o, 16, 1);
+	p->buf = ft_itoabase_u(o, "0123456789ABCDEF");
 	ft_print_x(p, o);
 }

@@ -6,7 +6,7 @@
 /*   By: apoque <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 16:04:46 by apoque            #+#    #+#             */
-/*   Updated: 2018/08/20 22:13:40 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/21 15:17:07 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 # include <stdarg.h>
 # include <limits.h>
 
-# define DIESE 0
+# define F p->format[p->idx2]
+
+# define POUND 0
 # define ZERO 1
 # define MORE 2
 # define LESS 3
@@ -78,6 +80,14 @@ int						ft_wchar_len(wchar_t c);
 int						ft_wstrlen(wchar_t *str);
 int						ft_get_a(wchar_t c);
 int						ft_char_size(int a, int nb);
+void					ft_text_parser(t_printf *p);
+void					ft_print_buf(t_printf *p);
+void					ft_txt(t_printf *p);
+void					ft_init_options(t_printf *p);
+int						ft_is_option(t_printf *p);
+void					ft_opt_flag(t_printf *p);
+void					ft_treatment(t_printf *p);
+void					ft_print_percent(t_printf *p);
 
 char					*ft_strdup(char *str);
 char					*ft_strnew(int len);
@@ -87,6 +97,7 @@ int						ft_atoi(char *str);
 char					*ft_itoa(int nb);
 char					*ft_uitoa(unsigned int nb);
 char					*ft_uitoabase(unsigned int nb, int base);
+char					*ft_itoabase_u(uintmax_t nb, char *str);
 char					*ft_ltoa(long int nb);
 char					*ft_litoabase(long int nb, int base);
 void					ft_putstr(char *str);
@@ -99,10 +110,5 @@ char					*ft_strjoin(const char *s1, const char *s2);
 int						ft_strcmp(char *s1, char *s2);
 char					*ft_strrev(char *str);
 char					*ft_strjoinfree(char *to_free, const char *s2);
-char					*ft_strndupfree(char *to_free, int n);
-char					*ft_itoabase_u(unsigned long long val, int base, int maj);
-char					*ft_lowerstr(char *s);
-char					*ft_strjoinfree(char *to_free, char const *s2);
-char					*ft_strndup(const char *s, int n);
 char					*ft_strndupfree(char *to_free, int n);
 #endif

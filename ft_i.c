@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/20 20:32:28 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/20 20:32:29 by carmenia         ###   ########.fr       */
+/*   Created: 2018/08/21 11:49:04 by carmenia          #+#    #+#             */
+/*   Updated: 2018/08/21 16:06:09 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 #include <stdio.h>
 
 #define R (result % 10) + 48
@@ -109,7 +109,7 @@ void		ft_int2(t_printf *p, int i, int zeros)
 	if (!(p->dot == 1 && i == 0))
 	{
 		p->buf = ft_ltoa(i);
-		ft_buf(p);
+		ft_print_buf(p);
 	}
 	if (p->size > 0 && (p->flag[LESS] == 1))
 		ft_put_space(p, 2);
@@ -121,7 +121,7 @@ void		ft_int(t_printf *p)
 	int			zeros;
 
 	if (p->txt == 1)
-		ft_buf(p);
+		ft_print_buf(p);
 	i = va_arg(p->ap, int);
 	zeros = ft_zeros(p, i);
 	if (p->flag[SPACE] == 1 && i >= 0 && p->flag[MORE] == 0)

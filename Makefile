@@ -6,7 +6,7 @@
 #    By: apoque <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/15 15:03:55 by apoque            #+#    #+#              #
-#    Updated: 2018/08/16 21:03:42 by carmenia         ###   ########.fr        #
+#    Updated: 2018/08/21 16:13:12 by carmenia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,10 @@ CFLAGS = -Werror -Wextra -Wall
 
 NAME = libftprintf.a
 
-INC = printf.h
+INC = ft_printf.h
 
 SRC =main.c\
 	 ft_printf.c\
-	 ft_printf2.c\
-	 ft_printf3.c\
 	 ft_i.c\
 	 ft_li.c\
 	 ft_o.c\
@@ -31,7 +29,12 @@ SRC =main.c\
 	 ft_str.c\
 	 ft_char.c\
 	 ft_conv_wchar.c\
-	 ft_percent.c\
+	 ft_text_parser.c\
+	 ft_treatement.c\
+	 ft_print_chars.c\
+	 ft_options.c\
+	 ft_option_utilities.c\
+	 
 
 OBJ = $(SRC:.c=.o)
 

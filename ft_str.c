@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/20 20:33:44 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/20 20:33:50 by carmenia         ###   ########.fr       */
+/*   Created: 2018/08/21 11:49:31 by carmenia          #+#    #+#             */
+/*   Updated: 2018/08/21 14:45:20 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 #define I str[i]
 #define V1 0x10ffff
 #define V2 0xd800
@@ -98,7 +98,7 @@ void	ft_wstr2(t_printf *p, wchar_t *str)
 		p->size = p->size - ft_strlen(p->buf);
 		if (p->size > 0 && p->flag[LESS] == 0)
 			ft_put_space(p, 2);
-		ft_buf(p);
+		ft_print_buf(p);
 		if (p->size > 0 && p->flag[LESS] == 1)
 			ft_put_space(p, 2);
 	}
@@ -113,7 +113,7 @@ void	ft_wstr(t_printf *p)
 	char	*buf;
 
 	if (p->txt == 1)
-		ft_buf(p);
+		ft_print_buf(p);
 	i = 0;
 	str = va_arg(p->ap, wchar_t *);
 	if (str == NULL || ft_strcmp((char *)str, "(null)") == 0)
@@ -133,4 +133,29 @@ void	ft_wstr(t_printf *p)
 		}
 	if (i != 0 || p->modif[Z] == -5)
 		ft_wstr2(p, str);
+}
+
+void	ft_str(t_printf *p)
+{
+	char	*str;
+	int		len;
+
+	len = -1;
+	if (p->txt == 1)
+		ft_print_buf(p);
+	if (p->dot == 1)
+		len = p->precision;
+	str = va_arg(p->ap, char *);
+	if (str == NULL)
+		str = "(null)";
+	if (len == -1 && str != NULL)
+		p->buf = ft_strdup(str);
+	else if (len != -1)
+		p->buf = ft_strndup(str, len);
+	p->size = p->size - ft_strlen(p->buf);
+	if (p->size > 0 && p->flag[LESS] == 0)
+		ft_put_space(p, 2);
+	ft_print_buf(p);
+	if (p->size > 0 && p->flag[LESS] == 1)
+		ft_put_space(p, 2);
 }

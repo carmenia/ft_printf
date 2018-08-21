@@ -1,16 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf3.c                                       :+:      :+:    :+:   */
+/*   ft_option_uilities.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/20 20:33:37 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/20 20:33:39 by carmenia         ###   ########.fr       */
+/*   Created: 2018/08/21 14:56:52 by carmenia          #+#    #+#             */
+/*   Updated: 2018/08/21 16:12:18 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
+
+void		ft_opt_flag(t_printf *p)
+{
+	if (F == '#')
+	{
+		p->flag[POUND] = 1;
+		p->idx2++;
+	}
+	else if (F == '0')
+	{
+		p->flag[ZERO] = 1;
+		p->idx2++;
+	}
+	else if (F == '-')
+	{
+		p->flag[LESS] = 1;
+		p->idx2++;
+	}
+	else if (F == '+')
+	{
+		p->flag[MORE] = 1;
+		p->idx2++;
+	}
+	else if (F == ' ')
+	{
+		p->flag[SPACE] = 1;
+		p->idx2++;
+	}
+}
 
 void		ft_opt_size(t_printf *p)
 {

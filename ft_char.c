@@ -1,16 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_char.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/20 20:32:10 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/20 20:32:13 by carmenia         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "printf.h"
+#include "ft_printf.h"
 #define P p->size
 
 void	ft_putwchar(wchar_t chr)
@@ -53,13 +41,13 @@ void	ft_wchar(t_printf *p)
 	else
 		p->error = -1;
 	if (p->error != -1 && p->txt == 1)
-		ft_buf(p);
+		ft_print_buf(p);
 	if ((P = (P - ft_strlen(str))) > 0 && p->flag[LESS] == 0 && p->error != -1)
 		ft_put_space(p, 2);
 	if (p->error != -1)
 	{
 		p->buf = ft_strdup(str);
-		ft_buf(p);
+		ft_print_buf(p);
 	}
 	if (p->size > 0 && p->flag[LESS] == 1 && p->error != -1)
 		ft_put_space(p, 2);
@@ -71,7 +59,7 @@ void	ft_char(t_printf *p)
 	int c;
 
 	if (p->txt == 1)
-		ft_buf(p);
+		ft_print_buf(p);
 	c = va_arg(p->ap, int);
 	if (p->size-- > 0 && p->flag[LESS] == 0)
 		ft_put_space(p, 2);

@@ -1,44 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf2.c                                       :+:      :+:    :+:   */
+/*   ft_options.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/20 20:33:28 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/20 20:33:29 by carmenia         ###   ########.fr       */
+/*   Created: 2018/08/21 14:48:19 by carmenia          #+#    #+#             */
+/*   Updated: 2018/08/21 15:09:23 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
-#define F p->format[p->idx2]
+#include "ft_printf.h"
 
-void		ft_treatment2(t_printf *p)
-{
-	int	a;
-
-	a = 1;
-	if (F == 'i' || F == 'd')
-		ft_int(p);
-	else if (F == 'S' || (F == 's' && p->modif[L] == 1))
-		ft_wstr(p);
-	else if (F == 'c' && p->modif[L] == 0)
-		ft_char(p);
-	else if (F == 'U' || (F == 'u' && (p->modif[L] == 1 || p->modif[LL] == 1)))
-		ft_umajint(p);
-	else if (F == 'C' || (F == 'c' && p->modif[L] == 1))
-		ft_wchar(p);
-	else if (F == 'p')
-		ft_p(p);
-	else if (F == '%')
-		ft_percent(p);
-	else
-		a = 0;
-	if (a == 1)
-		p->idx2++;
-}
-
-void		ft_init_opt(t_printf *p)
+void		ft_init_options(t_printf *p)
 {
 	int	i;
 
@@ -59,35 +33,6 @@ void		ft_init_opt(t_printf *p)
 	p->size = 0;
 }
 
-void		ft_opt_flag(t_printf *p)
-{
-	if (F == '#')
-	{
-		p->flag[DIESE] = 1;
-		p->idx2++;
-	}
-	else if (F == '0')
-	{
-		p->flag[ZERO] = 1;
-		p->idx2++;
-	}
-	else if (F == '-')
-	{
-		p->flag[LESS] = 1;
-		p->idx2++;
-	}
-	else if (F == '+')
-	{
-		p->flag[MORE] = 1;
-		p->idx2++;
-	}
-	else if (F == ' ')
-	{
-		p->flag[SPACE] = 1;
-		p->idx2++;
-	}
-}
-
 void		ft_opt_specifier(t_printf *p)
 {
 	if ((F == '-' || F == '+' ||
@@ -103,7 +48,7 @@ void		ft_opt_specifier(t_printf *p)
 		ft_opt_precision(p);
 }
 
-int			ft_opt(t_printf *p)
+int			ft_is_option(t_printf *p)
 {
 	if (p->format[p->idx1 + 1] == '%' || F == '\0')
 		return (1);
