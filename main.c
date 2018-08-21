@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 11:48:56 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/21 12:39:06 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/22 00:18:00 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <string.h>
 #include <unistd.h>
 #include <wchar.h>
+
+# define TEST "%03.5u", 0
 
 int		main(void)
 {
@@ -33,7 +35,7 @@ int		main(void)
 	s = L"S„™ºÚÅÄÄS„";
 	str = L"S˛";
 	c = L'˛';
-	printf("[%d]\n", printf("% 20.12ld", 0x11ffaa147));
-	printf("{%d}\n", ft_printf("% 20.12ld", 0x11ffaa147));
+	printf("[%d]\n", printf(TEST));
+	printf("{%d}\n", ft_printf(TEST));
 	return (i);
 }

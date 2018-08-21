@@ -6,7 +6,7 @@
 /*   By: apoque <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 16:04:46 by apoque            #+#    #+#             */
-/*   Updated: 2018/08/21 22:51:27 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/21 23:46:01 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct			s_printf
 {
 	va_list				ap;
 	const char			*format;
-	char				*buf;
+	void				*buf;
 	char				modif[6];
 	char				flag[5];
 	int					idx1;
@@ -70,7 +70,7 @@ void					ft_treatment2(t_printf *p);
 int						ft_opt(t_printf *p);
 void					ft_opt_modif(t_printf *p);
 void					ft_opt_precision_size(t_printf *p);
-void					ft_init_opt(t_printf *p);
+void					ft_init_options(t_printf *p);
 void					ft_put_space(t_printf *p, int flag);
 void					ft_put_precision(t_printf *p, int zeros);
 void					ft_conv_wchar(t_printf *p, wchar_t c, char *str);
@@ -110,5 +110,9 @@ char					*ft_strrev(char *str);
 char					*ft_strjoinfree(char *to_free, const char *s2);
 char					*ft_strndupfree(char *to_free, int n);
 int						ft_int_strstr(const char *src, const char *find);
-int	ft_int_strchar(const char *src, const char find);
+int						ft_int_strchar(const char *src, const char find);
+
+//test
+
+void					ft_putnbr(int n);
 #endif
