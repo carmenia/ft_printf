@@ -6,11 +6,11 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 11:49:04 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/21 16:06:09 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/21 16:21:09 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 #include <stdio.h>
 
 #define R (result % 10) + 48

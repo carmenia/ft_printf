@@ -6,11 +6,11 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 11:49:09 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/21 14:46:41 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/21 16:21:34 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 void	ft_p(t_printf *p)
 {

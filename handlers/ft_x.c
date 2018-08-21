@@ -6,11 +6,11 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 11:49:36 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/21 13:02:13 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/21 16:21:59 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 #define S p->size
 
 void	ft_print_x2(t_printf *p, unsigned long u, int zeros)

@@ -6,11 +6,11 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 11:49:31 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/21 14:45:20 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/21 16:21:44 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 #define I str[i]
 #define V1 0x10ffff
 #define V2 0xd800

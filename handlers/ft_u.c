@@ -6,11 +6,11 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 11:49:34 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/21 13:02:13 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/21 16:21:52 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 #define F p->format[p->idx2]
 #define P p->precision
 

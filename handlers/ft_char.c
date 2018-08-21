@@ -1,4 +1,4 @@
-#include "ft_printf.h"
+#include "../ft_printf.h"
 #define P p->size
 
 void	ft_putwchar(wchar_t chr)
