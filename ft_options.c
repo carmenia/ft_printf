@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 14:48:19 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/21 15:09:23 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/21 20:45:25 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,8 @@
 
 void		ft_init_options(t_printf *p)
 {
-	int	i;
-
-	i = 0;
-	while (i != 5)
-	{
-		p->flag[i] = 0;
-		i++;
-	}
-	i = 0;
-	while (i != 6)
-	{
-		p->modif[i] = 0;
-		i++;
-	}
+	ft_bzero(p->flag, sizeof(char) * 5);
+	ft_bzero(p->modif, sizeof(char) * 6);
 	p->dot = 0;
 	p->precision = 0;
 	p->size = 0;
