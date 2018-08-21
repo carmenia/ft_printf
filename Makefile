@@ -6,7 +6,7 @@
 #    By: apoque <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/15 15:03:55 by apoque            #+#    #+#              #
-#    Updated: 2018/08/21 17:09:55 by carmenia         ###   ########.fr        #
+#    Updated: 2018/08/21 17:36:24 by carmenia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,25 +44,29 @@ HANDLEROBJ = $(HANDLERSRC:.c=.o)
 all : $(NAME)
 
 $(OBJ): %.o: %.c
-		@gcc -c $(CFLAGS) $< -o $@
+	@gcc -c $(CFLAGS) $< -o $@
 
 $(HANDLEROBJ): %.o: %.c
-		@gcc -c $(CFLAGS) $< -o $@
+	@gcc -c $(CFLAGS) $< -o $@
 
 $(NAME) : $(HANDLEROBJ) $(OBJ) libft/*.c libft/Makefile
-	make -C libft
-	cp libft/libft.a ./$(NAME)
-	ar -rc $(NAME) $(OBJ) $(HANDLEROBJ)
-	ranlib $(NAME)
-	$(CC) $(FLAGS) $(OBJ) $(HANDLEROBJ) -o printf $(NAME)
+	@make -C libft
+	@cp libft/libft.a ./$(NAME)
+	@ar -rc $(NAME) $(OBJ) $(HANDLEROBJ)
+	@ranlib $(NAME)
+	@$(CC) $(FLAGS) $(OBJ) $(HANDLEROBJ) -o printf $(NAME)
+	@echo "\033[32mGeneral Objects created\033[0m"
+	@echo "\033[32mHandler Objects created\033[0m"
 
 clean :
-	cd libft ; make clean ; cd ..
-	rm -rf $(OBJ)
+	@cd libft ; make clean ; cd ..
+	@rm -rf $(OBJ) $(HANDLEROBJ)
+	@echo "\033[32mRemoved Object files\033[0m"
 
 fclean : clean
-	cd libft ; make fclean ; cd ..
-	rm -rf libftprintf.a
+	@cd libft ; make fclean ; cd ..
+	@rm -rf libftprintf.a
+	@echo "\033[32mRemoved Object files and library\033[0m"
 
 re : fclean all
 
