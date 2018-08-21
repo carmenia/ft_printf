@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 14:48:19 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/21 21:30:42 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/21 22:53:49 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,29 +21,17 @@ void		ft_init_options(t_printf *p)
 	p->size = 0;
 }
 
-void		ft_opt_specifier(t_printf *p)
-{
-	if (ft_int_strchar("-+#0 ", F))
-		ft_opt_flag(p);
-	if (ft_isdigit(F) && F != '0')
-		ft_opt_size(p);
-	if (F == 'h' || F == 'l' ||
-			F == 'j' || F == 'z')
-		ft_opt_modif(p);
-	if (F == '.')
-		ft_opt_precision(p);
-}
-
-int			ft_is_option(t_printf *p)
+void			ft_is_option(t_printf *p)
 {
 	if (p->format[p->idx1 + 1] == '%' || F == '\0')
-		return (1);
-	while ((F == '-' || F == '+' ||
-				F == '#' || F == '0' ||
-				F == ' ' || F == 'h' ||
-				F == 'l' || F == 'j' ||
-				F == 'z' || F == '.' ||
-				(ft_isdigit(F))) && F != '\0')
-		ft_opt_specifier(p);
-	return (1);
+		return ;
+	while (ft_int_strchar("-0# +hljz.", F) || ((ft_isdigit(F)) && F != '\0'))
+	{
+		if (ft_int_strchar("-+#0 ", F))
+			ft_opt_flag(p);
+		if ((ft_isdigit(F) && F != '0') || F == '.')
+			ft_opt_precision_size(p);
+		if (ft_int_strchar("hljz", F))
+			ft_opt_modif(p);
+	}
 }

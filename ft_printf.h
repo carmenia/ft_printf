@@ -6,7 +6,7 @@
 /*   By: apoque <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 16:04:46 by apoque            #+#    #+#             */
-/*   Updated: 2018/08/21 21:30:30 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/21 22:51:27 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,8 @@ void					ft_char(t_printf *p);
 void					ft_wchar(t_printf *p);
 void					ft_treatment2(t_printf *p);
 int						ft_opt(t_printf *p);
-void					ft_opt_size(t_printf *p);
 void					ft_opt_modif(t_printf *p);
-void					ft_opt_precision(t_printf *p);
+void					ft_opt_precision_size(t_printf *p);
 void					ft_init_opt(t_printf *p);
 void					ft_put_space(t_printf *p, int flag);
 void					ft_put_precision(t_printf *p, int zeros);
@@ -83,8 +82,7 @@ int						ft_char_size(int a, int nb);
 void					ft_text_parser(t_printf *p);
 void					ft_print_buf(t_printf *p);
 void					ft_txt(t_printf *p);
-void					ft_init_options(t_printf *p);
-int						ft_is_option(t_printf *p);
+void					ft_is_option(t_printf *p);
 void					ft_opt_flag(t_printf *p);
 void					ft_treatment(t_printf *p);
 void					ft_print_percent(t_printf *p);
