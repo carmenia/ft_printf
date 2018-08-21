@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 11:49:00 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/21 16:21:02 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/21 19:15:43 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void			ft_conv_wchar(t_printf *p, wchar_t c, char str[5])
 	char	a;
 
 	a = 0;
-	if (c > 0x10ffff || (c >= 0xd800 && c <= 0xdfff) || c < 0)
+	if (c > 1114111  || (c >= 0xd800 && c <= 0xdfff) || c < 0)
 		p->error = -1;
 	while (c >> a)
 		a++;
