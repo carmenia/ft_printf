@@ -6,7 +6,7 @@
 /*   By: apoque <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 18:59:53 by apoque            #+#    #+#             */
-/*   Updated: 2018/03/19 14:58:19 by apoque           ###   ########.fr       */
+/*   Updated: 2018/08/21 21:29:07 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
+int					ft_int_strstr(const char *src, const char *find);
+int					ft_int_strchar(const char *src, const char find);
 
 typedef struct		s_list
 {

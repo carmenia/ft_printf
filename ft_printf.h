@@ -6,7 +6,7 @@
 /*   By: apoque <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 16:04:46 by apoque            #+#    #+#             */
-/*   Updated: 2018/08/21 15:17:07 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/21 21:30:30 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,4 +111,6 @@ int						ft_strcmp(char *s1, char *s2);
 char					*ft_strrev(char *str);
 char					*ft_strjoinfree(char *to_free, const char *s2);
 char					*ft_strndupfree(char *to_free, int n);
+int						ft_int_strstr(const char *src, const char *find);
+int	ft_int_strchar(const char *src, const char find);
 #endif

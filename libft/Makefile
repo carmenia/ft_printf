@@ -6,7 +6,7 @@
 #    By: apoque <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/08 18:56:29 by apoque            #+#    #+#              #
-#    Updated: 2018/08/21 20:27:19 by carmenia         ###   ########.fr        #
+#    Updated: 2018/08/21 21:29:57 by carmenia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,6 +86,8 @@ SRC =	ft_memset.c \
 		ft_strndupfree.c\
 		get_next_line.c\
 		ft_power.c\
+		ft_int_strstr.c\
+		ft_int_strchar.c\
 
 OBJ = $(SRC:.c=.o)
 

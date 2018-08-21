@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 14:48:19 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/21 20:45:25 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/21 21:30:42 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ void		ft_init_options(t_printf *p)
 
 void		ft_opt_specifier(t_printf *p)
 {
-	if ((F == '-' || F == '+' ||
-				F == '#' || F == '0' ||
-				F == ' '))
+	if (ft_int_strchar("-+#0 ", F))
 		ft_opt_flag(p);
 	if (ft_isdigit(F) && F != '0')
 		ft_opt_size(p);
