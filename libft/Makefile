@@ -84,7 +84,6 @@ SRC =	ft_memset.c \
 		ft_itoabase_u.c\
 		ft_strjoinfree.c\
 		ft_strndupfree.c\
-		get_next_line.c\
 		ft_power.c\
 		ft_int_strstr.c\
 		ft_int_strchar.c\
