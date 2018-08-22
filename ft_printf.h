@@ -6,7 +6,7 @@
 /*   By: apoque <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 16:04:46 by apoque            #+#    #+#             */
-/*   Updated: 2018/08/22 09:49:24 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/22 12:56:55 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct			s_printf
 {
 	va_list				ap;
 	const char			*format;
-	void				*buf;
+	char				*buf;
 	char				modif[6];
 	char				flag[5];
 	int					idx1;
@@ -110,10 +110,5 @@ char					*ft_strrev(char *str);
 char					*ft_strjoinfree(char *to_free, const char *s2);
 char					*ft_strndupfree(char *to_free, int n);
 int						ft_int_strstr(const char *src, const char *find);
-int						ft_int_strchar(const char *src, const char find);
-char					*ft_tolowerstr(char *s);
-
-//test
-
-void					ft_putnbr(int n);
+int	ft_int_strchar(const char *src, const char find);
 #endif

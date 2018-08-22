@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 11:48:56 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/22 12:27:28 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/22 15:43:33 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@
 #include <unistd.h>
 #include <wchar.h>
 
-# define TEST "%x", (unsigned int)4294967296
-
+# define TEST "%zd", LLONG_MAX
 int		main(void)
 {
 	unsigned int	i;

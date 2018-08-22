@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 12:56:39 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/22 09:53:43 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/22 12:55:56 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,13 @@ void		ft_treatment(t_printf *p)
 	int	a;
 
 	a = 1;
-	if (F == 'u' || F == 'U' || ((F == 'd' || F == 'i') && p->modif[Z] == 1))
+	if ((F == 'u' && p->modif[L] != 1 && p->modif[LL] != 1) ||
+			((F == 'd' || F == 'i') && p->modif[Z] == 1))
 		ft_uint(p);
-	else if (F == 'x' || F == 'X')
+	else if (F == 'x')
 		ft_xint(p);
+	else if (F == 'X')
+		ft_xmajint(p);
 	else if (F == 'o' && p->modif[LL] != 1 && p->modif[L] != 1)
 		ft_oint(p);
 	else if (F == 'O' || F == 'o')
@@ -50,11 +53,16 @@ void		ft_treatment2(t_printf *p)
 		ft_wstr(p);
 	else if (F == 'c' && p->modif[L] == 0)
 		ft_char(p);
+	else if (F == 'U' || (F == 'u' && (p->modif[L] == 1 || p->modif[LL] == 1)))
+		ft_umajint(p);
 	else if (F == 'C' || (F == 'c' && p->modif[L] == 1))
 		ft_wchar(p);
 	else if (F == 'p')
 		ft_p(p);
 	else if (F == '%')
 		ft_print_percent(p);
+	else
+		a = 0;
+	if (a == 1)
 		p->idx2++;
 }
