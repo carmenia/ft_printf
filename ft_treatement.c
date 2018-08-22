@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 12:56:39 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/21 23:28:18 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/22 09:53:43 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@ void		ft_treatment(t_printf *p)
 	a = 1;
 	if (F == 'u' || F == 'U' || ((F == 'd' || F == 'i') && p->modif[Z] == 1))
 		ft_uint(p);
-	else if (F == 'x')
+	else if (F == 'x' || F == 'X')
 		ft_xint(p);
-	else if (F == 'X')
-		ft_xmajint(p);
 	else if (F == 'o' && p->modif[LL] != 1 && p->modif[L] != 1)
 		ft_oint(p);
 	else if (F == 'O' || F == 'o')

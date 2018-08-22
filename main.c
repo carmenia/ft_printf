@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 11:48:56 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/22 00:18:00 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/22 12:27:28 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <unistd.h>
 #include <wchar.h>
 
-# define TEST "%03.5u", 0
+# define TEST "%x", (unsigned int)4294967296
 
 int		main(void)
 {
