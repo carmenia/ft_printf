@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 13:00:54 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/21 22:00:53 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/23 15:50:46 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void		ft_print_buf(t_printf *p)
 		free(p->buf);
 }
 
-void	ft_print_percent(t_printf *p)
+void		ft_print_percent(t_printf *p)
 {
 	if (p->txt == 1)
 		ft_print_buf(p);
@@ -40,7 +40,7 @@ void	ft_print_percent(t_printf *p)
 		ft_put_space(p, 2);
 }
 
-void	ft_put_space(t_printf *p, int flag)
+void		ft_put_space(t_printf *p, int flag)
 {
 	while (p->size != 0)
 	{
@@ -53,7 +53,7 @@ void	ft_put_space(t_printf *p, int flag)
 	}
 }
 
-void	ft_put_precision(t_printf *p, int zeros)
+void		ft_put_precision(t_printf *p, int zeros)
 {
 	while (zeros != 0)
 	{

@@ -6,12 +6,11 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 12:56:39 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/22 12:55:56 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/23 15:53:00 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-# define F p->format[p->idx2]
 
 void		ft_treatment(t_printf *p)
 {
@@ -59,6 +58,10 @@ void		ft_treatment2(t_printf *p)
 		ft_wchar(p);
 	else if (F == 'p')
 		ft_p(p);
+	else if (F == 'b')
+		ft_bint(p);
+	else if (F == 'B')
+		ft_bmajint(p);
 	else if (F == '%')
 		ft_print_percent(p);
 	else

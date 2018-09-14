@@ -6,12 +6,12 @@
 /*   By: apoque <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 16:04:46 by apoque            #+#    #+#             */
-/*   Updated: 2018/08/22 12:56:55 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/23 15:52:08 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <wchar.h>
 # include <stdlib.h>
@@ -86,13 +86,15 @@ void					ft_is_option(t_printf *p);
 void					ft_opt_flag(t_printf *p);
 void					ft_treatment(t_printf *p);
 void					ft_print_percent(t_printf *p);
+void					ft_bint(t_printf *p);
+void					ft_bmajint(t_printf *p);
 
 char					*ft_strdup(char *str);
 char					*ft_strnew(int len);
 int						ft_strlen(char *str);
 int						ft_isdigit(int c);
 int						ft_atoi(char *str);
-char					*ft_itoa(int nb);
+char					*ft_itoa(intmax_t nb);
 char					*ft_uitoa(unsigned int nb);
 char					*ft_uitoabase(unsigned int nb, int base);
 char					*ft_itoabase_u(uintmax_t nb, char *str);
@@ -110,5 +112,5 @@ char					*ft_strrev(char *str);
 char					*ft_strjoinfree(char *to_free, const char *s2);
 char					*ft_strndupfree(char *to_free, int n);
 int						ft_int_strstr(const char *src, const char *find);
-int	ft_int_strchar(const char *src, const char find);
+int						ft_int_strchar(const char *src, const char find);
 #endif

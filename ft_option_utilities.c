@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 14:56:52 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/21 22:53:18 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/23 15:51:10 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void		ft_opt_flag(t_printf *p)
 
 void		ft_opt_precision_size(t_printf *p)
 {
-	int	i;
-	char *str;
+	int		i;
+	char	*str;
 
 	i = 0;
 	if (F == '.')
@@ -64,7 +64,8 @@ void		ft_opt_precision_size(t_printf *p)
 		i++;
 	}
 	str[i] = '\0';
-	p->dot == 1 ? (p->precision = ft_atoi(str)) : (p->size = ft_atoi(str));
+	p->dot == 1 ? (p->precision = ft_atoi(str))
+		: (p->size = ft_atoi(str));
 	free(str);
 }
 

@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_u.c                                             :+:      :+:    :+:   */
+/*   ft_b.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/21 11:49:34 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/22 20:56:56 by carmenia         ###   ########.fr       */
+/*   Created: 2018/08/22 20:08:23 by carmenia          #+#    #+#             */
+/*   Updated: 2018/08/22 20:45:02 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-#define F p->format[p->idx2]
 #define P p->precision
 
-void	ft_print_u2(t_printf *p, unsigned long u, int zeros)
+void	ft_print_b2(t_printf *p, unsigned long u, int zeros)
 {
-	if (p->size > 0 && (p->flag[ZERO] == 1 && p->precision == 0))
+	if (p->size > 0 && p->flag[ZERO] == 1 && p->flag[LESS] != 1 &&
+			((p->dot == 0 && p->flag[POUND] != 1) || u == 0))
 		ft_put_space(p, 1);
 	if (zeros > 0)
 		ft_put_precision(p, zeros);
@@ -26,7 +26,7 @@ void	ft_print_u2(t_printf *p, unsigned long u, int zeros)
 		ft_put_space(p, 2);
 }
 
-void	ft_print_u(t_printf *p, unsigned long u)
+void	ft_print_b(t_printf *p, unsigned long u)
 {
 	int	zeros;
 
@@ -37,63 +37,68 @@ void	ft_print_u(t_printf *p, unsigned long u)
 	p->size = (p->dot == 1 && u == 0) ? p->size + 1 : p->size;
 	if (p->size > 0 && (p->flag[ZERO] != 1 || P > 0) && p->flag[LESS] != 1)
 		ft_put_space(p, 2);
-	ft_print_u2(p, u, zeros);
+	ft_print_b2(p, u, zeros);
 }
 
-void	ft_uint2(t_printf *p)
+void	ft_bint2(t_printf *p)
 {
-	unsigned int	u;
-	unsigned char	a;
+	unsigned int		o;
+	unsigned short		s;
+	unsigned char		a;
 
-	if (p->modif[HH] == 1 && F == 'u')
+	if (p->modif[H] == 1)
+	{
+		s = (unsigned short)va_arg(p->ap, unsigned int);
+		p->buf = ft_itoabase_u(s, "01");
+		ft_print_b(p, s);
+	}
+	else if (p->modif[HH] == 1)
 	{
 		a = va_arg(p->ap, unsigned int);
-		p->buf = ft_itoabase_u(a, "0123456789");
-		ft_print_u(p, a);
+		p->buf = ft_itoabase_u(a, "01");
+		ft_print_b(p, a);
 	}
 	else
 	{
-		u = va_arg(p->ap, unsigned int);
-		p->buf = ft_itoabase_u(u, "0123456789");
-		ft_print_u(p, u);
+		o = va_arg(p->ap, unsigned int);
+		p->buf = ft_itoabase_u(o, "01");
+		ft_print_b(p, o);
 	}
 }
 
-void	ft_uint(t_printf *p)
+void	ft_bint(t_printf *p)
 {
-	size_t			z;
-	uintmax_t		x;
+	unsigned long long	u;
+	size_t				z;
 
 	if (p->txt == 1)
 		ft_print_buf(p);
 	if (p->modif[Z] == 1)
 	{
 		z = va_arg(p->ap, size_t);
-		p->buf = ft_itoabase_u(z, "0123456789");
-		if (z > UINT_MAX && F != 'u')
-			p->buf = ft_itoa(z);
-		ft_print_u(p, z);
+		p->buf = ft_itoabase_u(z, "01");
+		ft_print_b(p, z);
 	}
 	else if (p->modif[J] == 1)
 	{
-		x = va_arg(p->ap, uintmax_t);
-		p->buf = ft_itoabase_u(x, "0123456789");
-		ft_print_u(p, x);
+		u = va_arg(p->ap, unsigned long long);
+		p->buf = ft_itoabase_u(u, "01");
+		ft_print_b(p, u);
 	}
 	else
-		ft_uint2(p);
+		ft_bint2(p);
 }
 
-void	ft_umajint(t_printf *p)
+void	ft_bmajint(t_printf *p)
 {
-	unsigned long	u;
+	unsigned long	o;
 
 	if (p->txt == 1)
 		ft_print_buf(p);
 	if (p->modif[L] == 1)
-		u = (unsigned long int)va_arg(p->ap, unsigned long int);
+		o = (unsigned long int)va_arg(p->ap, unsigned long int);
 	else
-		u = (unsigned long long int)va_arg(p->ap, unsigned long long int);
-	p->buf = ft_itoabase_u(u, "0123456789");
-	ft_print_u(p, u);
+		o = (unsigned long long int)va_arg(p->ap, unsigned long long int);
+	p->buf = ft_itoabase_u(o, "01");
+	ft_print_b(p, o);
 }

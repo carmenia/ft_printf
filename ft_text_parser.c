@@ -6,13 +6,13 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 12:32:40 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/22 12:56:58 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/23 15:51:32 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_text_parser(t_printf *p)
+void		ft_text_parser(t_printf *p)
 {
 	while (p->format[p->idx1] && p->error != -1)
 	{

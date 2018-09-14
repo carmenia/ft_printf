@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 11:49:17 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/22 14:58:04 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/23 15:49:54 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int			ft_printf(const char *format, ...)
 {
 	t_printf p;
-	
+
 	ft_bzero(&p, sizeof(t_printf));
 	p.format = format;
 	va_start(p.ap, format);

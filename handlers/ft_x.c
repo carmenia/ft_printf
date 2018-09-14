@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 11:49:36 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/22 13:37:59 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/22 20:58:47 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	ft_xint2(t_printf *p)
 void	ft_xint(t_printf *p)
 {
 	unsigned long		v;
-	unsigned long				z;
+	unsigned long		z;
 
 	if (p->txt == 1)
 		ft_print_buf(p);

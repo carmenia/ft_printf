@@ -6,7 +6,7 @@
 #    By: apoque <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/15 15:03:55 by apoque            #+#    #+#              #
-#    Updated: 2018/08/21 18:36:49 by carmenia         ###   ########.fr        #
+#    Updated: 2018/09/14 11:59:46 by carmenia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,8 @@ HANDLERS =	ft_i.c\
 			ft_u.c\
 			ft_x.c\
 			ft_p.c\
+			ft_b.c\
+			ft_wstr.c\
 			ft_str.c\
 			ft_char.c\
 			ft_conv_wchar.c\

@@ -6,13 +6,13 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 14:48:19 by carmenia          #+#    #+#             */
-/*   Updated: 2018/08/21 22:53:49 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/08/23 15:50:14 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_init_options(t_printf *p)
+void			ft_init_options(t_printf *p)
 {
 	ft_bzero(p->flag, sizeof(char) * 5);
 	ft_bzero(p->modif, sizeof(char) * 6);
